@@ -2,29 +2,11 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
 
-  function myFunction() {
-	document.getElementById("myBtn").classList.add("gg");
-  
-     document.getElementById("myBtn").style.left = document.getElementById("myBtn").offsetLeft +  20 + "px";
-
-     y = window.scrollY;
-
-     console.log(y,"22");
- 
-}
-
- h = window.innerWidth;
-
-
-
-
-</script>
 <style>
 
 .gg {
- position: absolute;
+ position: fixed;
 }
 
 
@@ -44,13 +26,49 @@
 }
 </style>
 </head>
-<body onscroll='myFunction()'>
+<body id="myDIV">
 
 
   <button type="button" id="myBtn" onclick="myFunction()">Set left position to 100 px</button>
   <div style="height: 2000px; background-color: bisque;">fgdsdfg</div>
 
+  <script>
 
+
+
+    
+window.onscroll = function myFunction() {
+
+  h = document.getElementById("myBtn").offsetHeight; 
+  w = document.getElementById("myBtn").offsetWidth; 
+
+  
+
+  y = window.scrollY;
+ 
+
+       
+        if (y<=0){
+          document.getElementById("myBtn").classList.remove("gg");
+        }
+        else{
+          document.getElementById("myBtn").classList.add("gg");
+        }
+      
+         document.getElementById("myBtn").style.left = y*10 + "px";
+
+        
+    
+        
+     
+    }
+    
+     
+    
+    
+    
+    
+    </script>
 
 </body>
 </html>
