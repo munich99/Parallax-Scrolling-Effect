@@ -9,6 +9,17 @@
  position: fixed;
 }
 
+#myNew {
+  position: fixed;
+  width: 10%;
+  height: 10%;
+  text-align: center;
+  background-color: chartreuse;
+  display: none;
+  top:45%;
+  left: 45%;
+}
+
 
 
 .parallax {
@@ -24,49 +35,65 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.scaled {
+  transform: scale(1.2); /* Equal to scaleX(0.7) scaleY(0.7) */
+
+}
 </style>
 </head>
 <body id="myDIV">
 
 
   <button type="button" id="myBtn" onclick="myFunction()">Set left position to 100 px</button>
-  <div style="height: 2000px; background-color: bisque;">fgdsdfg</div>
+  <div id="myDiv" style="padding-left: 100px;">gdsdfg</div>
+  <div id="myKnoten" style="height: 2000px; background-color: bisque;">f</div>
+  <div id="myNew"></div>
 
   <script>
 
 
 
+
+function newScreen(){
+  para = document.createElement("div");
+  node = document.createTextNode("This is new.");
+            para.appendChild(node);
+
+            element = document.getElementById("myKnoten");
+          element.appendChild(para);
+}
+
+    window.onscroll = function myFunction() {
+
+    h = document.getElementById("myBtn").offsetHeight; 
+    w = document.getElementById("myBtn").offsetWidth; 
+
     
-window.onscroll = function myFunction() {
-
-  h = document.getElementById("myBtn").offsetHeight; 
-  w = document.getElementById("myBtn").offsetWidth; 
-
-  
-
-  y = window.scrollY;
- 
-
-       
-        if (y<=0){
-          document.getElementById("myBtn").classList.remove("gg");
-        }
-        else{
-          document.getElementById("myBtn").classList.add("gg");
-        }
-      
-         document.getElementById("myBtn").style.left = y*10 + "px";
-
+    y = window.scrollY;
         
-    
+          if (y<=0){
+            document.getElementById("myBtn").classList.remove("gg");
+            document.getElementById("myDiv").classList.remove("gg");
+          }
+          else{
+            document.getElementById("myBtn").classList.add("gg");
+            document.getElementById("myDiv").classList.add("gg");
+            document.getElementById("myDiv").style.top = h + 8 + "px";
+            // newScreen();
+            document.getElementById("myNew").style.display = "block";
+            
+
+
+            
+            
+          }
         
-     
-    }
-    
-     
-    
-    
-    
+          document.getElementById("myBtn").style.left = y*10 + "px";
+          document.getElementById("myDiv").style.left = -y*10 + "px";    
+          document.getElementById("myNew").style.transform = "scale(" + y/10 + ")";  
+      }      
+
     
     </script>
 
