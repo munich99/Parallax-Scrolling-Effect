@@ -2,10 +2,36 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+
+  function myFunction() {
+	document.getElementById("myBtn").classList.add("gg");
+  
+     document.getElementById("myBtn").style.left = document.getElementById("myBtn").offsetLeft +  20 + "px";
+
+     y = window.scrollY;
+
+     console.log(y,"22");
+ 
+}
+
+ h = window.innerWidth;
+
+
+
+
+</script>
 <style>
+
+.gg {
+ position: absolute;
+}
+
+
+
 .parallax {
   /* The image used */
-  background-image: url("/frontend_developer.jpg");
+  position: fixed;
 
   /* Set a specific height */
   min-height: 500px; 
@@ -18,17 +44,13 @@
 }
 </style>
 </head>
-<body>
+<body onscroll='myFunction()'>
 
-<p>Scroll Up and Down this page to see the parallax scrolling effect.</p>
 
-<div class="parallax"></div>
+  <button type="button" id="myBtn" onclick="myFunction()">Set left position to 100 px</button>
+  <div style="height: 2000px; background-color: bisque;">fgdsdfg</div>
 
-<div style="height:1000px;background-color:red;font-size:36px">
-Scroll Up and Down this page to see the parallax scrolling effect.
-This div is just here to enable scrolling.
-Tip: Try to remove the background-attachment property to remove the scrolling effect.
-</div>
+
 
 </body>
 </html>
